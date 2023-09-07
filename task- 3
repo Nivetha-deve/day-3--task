@@ -1,0 +1,44 @@
+// flags 
+let xhr = new XMLHttpRequest();
+console.log(xhr);
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+xhr.send();
+xhr.onload = function () {
+    const data = JSON.parse(xhr.response);
+    console.log(data);
+    console.log(xhr.status);
+    for (let i =0; i < data.length; i++){
+     console.log("Flag:", data[i].flags.png);
+    }
+};
+
+//name, region, sub-region, populations
+let xhr = new XMLHttpRequest();
+console.log(xhr);
+xhr.open("GET","https://restcountries.com/v3.1/all");
+xhr.send();
+xhr.onload = function () {
+    const data =JSON.parse(xhr.response);
+    console.log(data);
+    console.log(xhr.status);
+   for (let i =0; i < data.length; i++){
+    console.log(data[0])
+        console.log(`
+        Name : ${data[i].name.common}
+        region : ${data[i].region}
+        sub-region : ${data[i].subregion}
+        population : ${data[i].population}
+        `);
+    }
+};
+
+comparing two JSON 
+const obj1 = {
+    age: 5,
+    Name : "person 1",
+};
+const obj2 = {
+    age: 5,
+    Name : "person 1",
+};
+console.log(obj1 === obj2);
